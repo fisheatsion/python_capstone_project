@@ -7,7 +7,8 @@ menu = {
 }
 
 # Display the menu
-print("Menu:")
+print("Vending Machine Menu:")
+print("--------------------")
 for number, item in menu.items():
     print(number, ":", item["name"], "-", item["price"])
 
@@ -28,14 +29,19 @@ while True:
             price = menu[item_number]["price"]
             selected_items.append(name)
             total_cost += price
-            print("Added", name)
+            print("Added", name, price)
         else:
             print("Invalid number.")
     else:
         print("Enter a valid number or 'done'.")
 
 # Print the receipt
-print("\nReceipt:")
+print("--------------------")
+print("       Receipt      ")
+print("--------------------")
 for name in selected_items:
-    print(name)
+    print(f"{name} ${price}")
+print("--------------------")    
 print("Total cost:", total_cost)
+print("====================") 
+
