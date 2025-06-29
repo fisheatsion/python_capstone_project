@@ -160,5 +160,5 @@ def todo_list_app():
     
     print("\nThank you for using the To-Do List App!")
 
-# Run Todo List
+# Run Todo List App
 todo_list_app()
