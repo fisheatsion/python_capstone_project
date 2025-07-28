@@ -12,16 +12,16 @@ bookings = []
 
 def show_movies():
     print("\nAvailable Movies:")
-    for idx, movie in enumerate(movies.keys(), start=1):
+    for idx, movie in enumerate(movies.keys(), start=1):## to assign each movie a number (idx), starting from 1
         print(f"{idx}. {movie}")
     return list(movies.keys())
 
 while True:
-    movie_list = show_movies()
+    movie_list = show_movies() ##This loop repeatedly asks til valid input is get
 
     try:
         movie_choice_num = int(input("\nSelect a movie by number: "))
-        if not 1 <= movie_choice_num <= len(movie_list):
+        if not 1 <= movie_choice_num <= len(movie_list):  ##If the number is not between 1 and len(movie_list)
             print("Invalid movie selection.")
             continue
     except ValueError:
@@ -73,7 +73,7 @@ print("\n             Booking Summary:            ")
 print("-------------------------------------------")
 for booking in bookings:
     print(f"- {booking}")
-print("----------------------------------------")    
+print("-------------------------------------------")    
 print(f"Total tickets booked: {total_tickets}")
 print("-------------------")
 print(f"Total cost: ${total_cost:.2f}")
