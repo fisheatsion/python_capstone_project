@@ -78,7 +78,7 @@ def grocery_cart():
     for item, details in cart.items():
         subtotal = details["price"] * details["quantity"]
         total += subtotal
-        print("{:<15} ETH.{:<9.2f} {:<10} ${:<9.2f}".format(
+        print("{:<15} ETH.{:<9.2f} {:<10} ETH.{:<9.2f}".format(
             item.capitalize(), 
             details["price"], 
             details["quantity"], 

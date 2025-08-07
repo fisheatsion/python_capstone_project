@@ -1,12 +1,14 @@
 def todo_list_app():
-    tasks = []
-    completed_tasks = []
+    tasks = []  #List of Tasks will be kept here
+    completed_tasks = [] #List of Copleted Tasks will be Appendede Here
     
     print("Welcome to the  To-Do List App!")
     print("Type 'exit' at any time to quit.\n")
     
     while True:
-        print("\nMain Menu:")
+        print("-"*20)
+        print("\n   Main Menu:")
+        print("-"*20)
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Delete Task")
@@ -43,7 +45,7 @@ def todo_list_app():
                         "priority": priority,
                         "completed": False
                     })
-                    print(f"\nAdded: '{task}' with {priority} priority")
+                    print(f"\nAdded: '{task}' with {priority} priority") #by defaullt "medium" will be assigned
                     break
                 except:
                     print("Invalid priority. Using Medium by default.")
@@ -60,13 +62,13 @@ def todo_list_app():
             if not tasks:
                 print("\nNo tasks in your list!")
             else:
-                print("\nCurrent Tasks:")
+                print("\nCurrent Tasks:")#Otherwise, it proceeds to display all tasks.
                 print("-" * 40)
-                print(f"{'No.':<5}{'Status':<8}{'Task':<20}{'Priority':<10}")
+                print(f"{'No.':<5}{'Status':<8}{'Task':<20}{'Priority':<10}")#Task table header format (n) no. char wide
                 print("-" * 40)
-                for i, task in enumerate(tasks, 1):
+                for i, task in enumerate(tasks, 1):#tasks with index i starting at 1
                     status = "✓" if task["completed"] else " "
-                    print(f"{i:<5}[{status:<3}]{task['description'][:18]:<20}{task['priority']:<10}")
+                    print(f"{i:<5}[{status:<3}]{task['description'][:18]:<20}{task['priority']:<10}")##Prevents long descriptions breaking the layout.
                 print("-" * 40)
                 
         elif choice == "3":
@@ -75,18 +77,17 @@ def todo_list_app():
                 print("\nNo tasks to delete!")
                 continue
                 
-            # Show tasks first so user knows what to delete
-            print("\nCurrent Tasks:")
+            print("\nCurrent Tasks:")# Show tasks first so user knows what to delete
             for i, task in enumerate(tasks, 1):
                 print(f"{i}. {task['description']}")
                 
             try:
                 task_num = input("\nEnter task number to delete (or 'back'): ").strip()
-                if task_num.lower() == "back":
+                if task_num.lower() == "back":    #it cancels deletion and returns to the previous menu.
                     continue
                 if task_num.lower() == "exit":
                     choice = "5"
-                    break
+                    break # Breaks out of the current loop
                     
                 task_num = int(task_num)
                 if 1 <= task_num <= len(tasks):
@@ -98,7 +99,7 @@ def todo_list_app():
                 else:
                     print("Invalid task number!")
             except:
-                print("Invalid input!")
+                print("Invalid input!") #
                 
         elif choice == "4":
             # Mark Task Complete
