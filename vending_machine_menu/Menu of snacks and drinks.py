@@ -43,9 +43,9 @@ while True:
         display_menu()  # Display menu again after invalid input
 
 # Print the receipt
-print("\n--------------------")
-print("        Receipt       ")
-print("----------------------")
+print("\n" + "=" * 22)
+print("Receipt".center(22))
+print("=" * 22)
 for item in selected_items:
     # Get the correct price for each item
     price = next((v["price"] for k, v in menu.items() if v["name"] == item), 0)

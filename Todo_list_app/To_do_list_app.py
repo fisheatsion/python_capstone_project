@@ -6,7 +6,6 @@ def todo_list_app():
     print("Type 'exit' at any time to quit.\n")
     
     while True:
-        print("-"*20)
         print("\n   Main Menu:")
         print("-"*20)
         print("1. Add Task")

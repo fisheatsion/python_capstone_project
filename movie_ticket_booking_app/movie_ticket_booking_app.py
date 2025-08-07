@@ -33,19 +33,19 @@ while True:
 
     print(f"\nAvailable showtimes for '{movie_choice}':")
     showtime_list = list(showtimes.items())
-    for idx, (time, price) in enumerate(showtime_list, start=1):
+    for idx, (time, price) in enumerate(showtime_list, start=1):## to assign each showtime_list a number (idx), starting from 1
         print(f"{idx}. {time} - ${price} per ticket")
 
     try:
         showtime_choice_num = int(input("Select a showtime by number: "))
-        if not 1 <= showtime_choice_num <= len(showtime_list):
+        if not 1 <= showtime_choice_num <= len(showtime_list): ##If the number is not between 1 and len(showtime_list)
             print("Invalid showtime selection.")
             continue
     except ValueError:
         print("Please enter a valid number.")
         continue
 
-    selected_time, price_per_ticket = showtime_list[showtime_choice_num - 1]
+    selected_time, price_per_ticket = showtime_list[showtime_choice_num - 1]##We subtract 1 because list indices start at 0 SO TO adjusts the user's input (like "1" for the first option) to the correct list index
 
     try:
         num_tickets = int(input("How many tickets do you want to book? "))
@@ -53,7 +53,7 @@ while True:
             print("Invalid number of tickets.")
             continue
     except ValueError:
-        print("Please enter a valid number.")
+        print("Please enter a valid number.")#IF INPUT IS NOT NUMBER
         continue
 
     booking_cost = price_per_ticket * num_tickets
